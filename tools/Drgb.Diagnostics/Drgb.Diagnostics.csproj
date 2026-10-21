@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType></PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\FanControl.DRGB\FanControl.DRGB.csproj" />
+    <Reference Include="FanControl.Plugins"><HintPath>$(FanControlDir)\FanControl.Plugins.dll</HintPath><Private>true</Private></Reference>
+    <Reference Include="HidSharp"><HintPath>$(FanControlDir)\HidSharp.dll</HintPath><Private>true</Private></Reference>
+  </ItemGroup>
+</Project>

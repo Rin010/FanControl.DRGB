@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>FanControl.DRGB</AssemblyName>
+    <RootNamespace>FanControl.DRGB</RootNamespace>
+    <Version>0.1.3</Version>
+    <Description>DeepRGB U16/C16/S16 V5F USB HID fan control for FanControl.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FanControl.Plugins">
+      <HintPath>$(FanControlDir)\FanControl.Plugins.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="HidSharp">
+      <HintPath>$(FanControlDir)\HidSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <InternalsVisibleTo Include="FanControl.DRGB.Tests" />
+    <InternalsVisibleTo Include="Drgb.Diagnostics" />
+  </ItemGroup>
+  <Target Name="CheckFanControlReferences" BeforeTargets="ResolveReferences">
+    <Error Condition="!Exists('$(FanControlDir)\FanControl.Plugins.dll')" Text="Set FanControlDir to your FanControl installation directory." />
+    <Error Condition="!Exists('$(FanControlDir)\HidSharp.dll')" Text="HidSharp.dll is missing from FanControlDir." />
+  </Target>
+</Project>
